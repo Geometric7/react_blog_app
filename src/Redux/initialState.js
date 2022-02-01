@@ -29,14 +29,17 @@ const InitialState = {
       title: 'Third short description of the title...',
       shortDescription: 'Third main content of the article',
       content: 'Third main content of the article',
-      publishedDate: '20-02-2021'
+      publishedDate: '20-02-2021',
+      author: 'Bruce Lee'
     },
     {
       id: '5',
       title: 'Fourth shord description of the title...',
       shortDescription: 'Fourth main content of the article',
       content: 'Fourth main content of the article',
-      publishedDate: '11-01-2022'
+      publishedDate: '11-01-2022',
+      author: 'Donald Duck' 
+
     },
   ]
 };
