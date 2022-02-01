@@ -17,9 +17,10 @@ const PostForm = ({ action, actionText, ...props }) => {
     action({ title, author, publishedDate, shortDescription, content });
   }
 
+
   return (
     <Form onSubmit={handleSubmit} className={styles.form}>
-      <Form.Group className={clsx("mb-3")} controlId="formTitle">
+      <Form.Group className={clsx("mb-3")} controlId="formTitle" >
         <Form.Label>Title</Form.Label>
         <Form.Control
           type="text"
