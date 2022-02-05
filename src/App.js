@@ -13,6 +13,7 @@ function App() {
   return (
   <Container>
     <Header/>
+    {/*strona logowania (warunek lub osobne routesy)*/}
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
