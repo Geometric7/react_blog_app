@@ -1,7 +1,7 @@
 import styles from './PostForm.module.scss';
 import { Form, Button } from 'react-bootstrap';
 import { useState } from 'react';
-import clsx from 'clsx';
+//import clsx from 'clsx';
 import FormText from '../views/FormText';
 import FormTextArea from '../views/FormTextArea';
 
