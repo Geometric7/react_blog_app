@@ -1,12 +1,3 @@
-/* const Post = () => {
-  return (
-    <h2>Single Post</h2>
-  )
-}
-
-export default Post; */
-
-
 import { Row, Col, Button, Modal } from 'react-bootstrap'
 import { useParams } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
@@ -21,7 +12,7 @@ import dateToStr from '../../utils/dateToStr'
 const SinglePost = () => {
 
   const { id } = useParams();
-  const postData = useSelector(state => getPostId(state, id))
+  const post = useSelector(state => getPostId(state, id))
 
   const [show, setShow] = useState(false);
 
@@ -31,27 +22,28 @@ const SinglePost = () => {
   const dispatch = useDispatch();
 
   const remove = () => {
-    dispatch(removePost(postData.id))
+    dispatch(removePost(post.id))
   }
 
-  if (!postData) return <Navigate to="/" />
+  if (!post) return <Navigate to="/" />
     return (
       <>
       <article>
         <Row className="d-flex justify-content-between mb-3">
           <Col xs={8} lg={10}>
-            <h2>{postData.title}</h2>
+            <h2>{post.title}</h2>
           </Col>
           <Col xs={4} lg={2} className="d-flex flex-row-reverse align-items-start">
             <Button variant="outline-danger" onClick={handleShow}>Delete</Button>
-            <Link className="me-3" key={postData.id} to={`/post/edit/${postData.id}`}>
+            <Link className="me-3" key={post.id} to={`/post/edit/${post.id}`}>
               <Button variant="outline-info">Edit</Button>
             </Link>
           </Col>
         </Row>
-        <h3 className="mb-3">{postData.author}</h3>
-        <h4 className="mb-4">{dateToStr(postData.publishedDate)}</h4>
-        <p dangerouslySetInnerHTML={{ __html: postData.content }} />
+        <h3 className="mb-3">{post.author}</h3>
+        <h4 className="mb-4">{dateToStr(post.publishedDate)}</h4>
+        <p className="mb-4"><Link to={`/categories/${post.category}`}>{post.category}</Link></p>
+        <p dangerouslySetInnerHTML={{ __html: post.content }} />
       </article>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

@@ -6,7 +6,8 @@ const InitialState = {
       shortDescription: 'Short description of the article...',
       content: 'Main content of the article',
       publishedDate: new Date('02-02-2022'),
-      author: 'John Doe'
+      author: 'John Doe',
+      category: 'Sport'
     },
     {
       id: '2',
@@ -14,7 +15,8 @@ const InitialState = {
       shortDescription: 'First short description of the title...',
       content: 'First main content of the article',
       publishedDate: new Date('07-07-2022'),
-      author: 'Mr. Anderson'
+      author: 'Mr. Anderson',
+      category: 'News'
     },
     {
       id: '3',
@@ -22,7 +24,8 @@ const InitialState = {
       shortDescription: 'Second short description of the article...',
       content: 'Second main content of the article',
       publishedDate: new Date('12-12-2021'),
-      author: 'Marry Poppins'
+      author: 'Marry Poppins',
+      category: 'Games'
     },
     {
       id: '4',
@@ -30,7 +33,8 @@ const InitialState = {
       shortDescription: 'Third short description of the article...',
       content: 'Third main content of the article',
       publishedDate: new Date('05-03-2020'),
-      author: 'Bruce Lee'
+      author: 'Bruce Lee',
+      category: 'Games'
     },
     {
       id: '5',
@@ -38,10 +42,33 @@ const InitialState = {
       shortDescription: 'Fourth short description of the article...',
       content: 'Fourth main content of the article',
       publishedDate: new Date('11-01-2022'),
-      author: 'Donald Duck'
+      author: 'Donald Duck',
+      category: 'Movies'
 
     },
-  ]
+  ],
+  categories: [
+   {
+     id: '1',
+     name: 'Sport'
+   },
+   {
+     id: '2',
+     name: 'News'
+   },
+   {
+     id: '3',
+     name: 'Movies'
+   },
+   {
+     id: '4',
+     name: 'Games'
+   },
+   {
+     id: '5',
+     name: 'Books'
+   }
+ ]
 };
 
 export default InitialState;

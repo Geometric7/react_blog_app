@@ -9,8 +9,8 @@ import 'react-quill/dist/quill.snow.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import clsx from 'clsx';
-
-
+import { useSelector } from 'react-redux';
+import { getAllCategories } from '../../Redux/categoriesRedux'
 
 
 const PostForm = ({ action, actionText, ...props }) => {
@@ -23,14 +23,16 @@ const PostForm = ({ action, actionText, ...props }) => {
   const [content, setContent] = useState(props.content || '');
   const [contentError, setContentError] = useState(false);
   const [dateError, setDateError] = useState(false);
+  const [category, setCategory] = useState(props.category || '');
 
+  const categories = useSelector(state => getAllCategories(state))
 
 
   const handleSubmit = () => {
     setContentError(!content)
     setDateError(!publishedDate)
     if(content && publishedDate) {
-      action({ title, author, publishedDate, shortDescription, content });
+      action({ title, author, publishedDate, shortDescription, content, category });
     }
   };
 
@@ -64,6 +66,15 @@ const PostForm = ({ action, actionText, ...props }) => {
             <DatePicker selected={publishedDate} onChange={(date) => setPublishedDate(date)} />
             {dateError && <small className="d-block form-text text-danger mt-2">Date can't be empty</small>}
           </Form.Group>
+          <Form.Select>
+            {categories.map(category =>
+              (<option key={category.id}
+                  className="d-flex align-items-stretch" value={category.name}>
+                  {category.name}
+              </option>
+              ))
+            }
+    </ Form.Select>
           <Form.Group className="mb-3" controlId="formDescription">
             <Form.Label>Short description</Form.Label>
             <Form.Control
