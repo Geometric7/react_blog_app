@@ -15,6 +15,8 @@ import { Navigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
 import { removePost } from '../../Redux/postsRedux'
+import dateToStr from '../../utils/dateToStr'
+
 
 const SinglePost = () => {
 
@@ -48,8 +50,8 @@ const SinglePost = () => {
           </Col>
         </Row>
         <h3 className="mb-3">{postData.author}</h3>
-        <h4 className="mb-4">{postData.publishedDate}</h4>
-        <p>{postData.content}</p>
+        <h4 className="mb-4">{dateToStr(postData.publishedDate)}</h4>
+        <p dangerouslySetInnerHTML={{ __html: postData.content }} />
       </article>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
