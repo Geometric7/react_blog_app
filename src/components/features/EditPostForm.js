@@ -6,6 +6,8 @@ import { getPostId } from '../../Redux/postsRedux';
 import { useNavigate } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 
+
+
 const EditPostForm = () => {
 
   const { id } = useParams();
