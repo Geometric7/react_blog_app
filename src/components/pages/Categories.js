@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux'
 import { getAllCategories } from '../../Redux/categoriesRedux'
 import { Link } from 'react-router-dom'
+import styles from './Categories.module.scss'
 
 const Categories = () => {
 
@@ -9,7 +10,7 @@ const Categories = () => {
   return (
     <>
       <h1>All Categories</h1>
-      <ul>
+      <ul className={styles.list}>
         {
           categories.map(category => (
             <li key={category.id}><Link className="mt-auto" to={`/categories/${category.name}`}>{category.name}</Link></li>
