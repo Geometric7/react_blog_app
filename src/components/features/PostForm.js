@@ -61,12 +61,12 @@ const PostForm = ({ action, actionText, ...props }) => {
             />
             {errors.author && <small className="d-block form-text text-danger mt-2">This field is required (min length is 3)</small>}
           </Form.Group>
-          <Form.Group className={clsx("mb-3", styles.smallInput)} controlId="formDate">
+          <Form.Group className={"mb-3", styles.smallInput} controlId="formDate">
             <Form.Label>Published</Form.Label>
             <DatePicker selected={publishedDate} onChange={(date) => setPublishedDate(date)} />
             {dateError && <small className="d-block form-text text-danger mt-2">Date can't be empty</small>}
           </Form.Group>
-          <Form.Select>
+          <Form.Control as="select" onChange={e => setCategory(e.target.value)}>
             {categories.map(category =>
               (<option key={category.id}
                   className="d-flex align-items-stretch" value={category.name}>
@@ -74,7 +74,7 @@ const PostForm = ({ action, actionText, ...props }) => {
               </option>
               ))
             }
-    </ Form.Select>
+          </Form.Control>
           <Form.Group className="mb-3" controlId="formDescription">
             <Form.Label>Short description</Form.Label>
             <Form.Control

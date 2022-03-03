@@ -3,7 +3,7 @@ import PostForm from '../features/PostForm';
 
 
 
-const FormTextArea = ({controlId, label, placeholder, value, action, rows, errors, title, }) => {
+const FormTextArea = ({controlId, label, placeholder, value, action, rows, errors, title }) => {
   return (
     <Form.Group className={"mb-3"} controlId={controlId}>
       <Form.Label>{label}</Form.Label>
