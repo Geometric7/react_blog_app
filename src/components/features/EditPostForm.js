@@ -6,6 +6,8 @@ import { getPostId } from '../../Redux/postsRedux';
 import { useNavigate } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 
+
+
 const EditPostForm = () => {
 
   const { id } = useParams();
@@ -22,8 +24,12 @@ const EditPostForm = () => {
   if (!postData) return <Navigate to ='/' />
     return (
       <PostForm action={handleSubmit} actionText={'Edit post'}
-      title={postData.title} author={postData.author} publishedDate={postData.publishedDate}
-      shortDescription={postData.shortDescription} content={postData.content}
+      title={postData.title}
+      author={postData.author}
+      publishedDate={postData.publishedDate}
+      category={postData.category} 
+      shortDescription={postData.shortDescription}
+      content={postData.content}
       />
     )
 }

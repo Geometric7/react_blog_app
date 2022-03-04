@@ -1,7 +1,9 @@
 import { Form } from 'react-bootstrap';
+import PostForm from '../features/PostForm';
 
 
-const FormTextArea = ({controlId, label, placeholder, value, action, rows}) => {
+
+const FormTextArea = ({controlId, label, placeholder, value, action, rows, errors, title }) => {
   return (
     <Form.Group className={"mb-3"} controlId={controlId}>
       <Form.Label>{label}</Form.Label>
@@ -11,7 +13,6 @@ const FormTextArea = ({controlId, label, placeholder, value, action, rows}) => {
         placeholder={placeholder}
         value={value}
         onChange={e => action(e.target.value)}
-        required
       />
     </Form.Group>
   )

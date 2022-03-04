@@ -1,7 +1,11 @@
 import { getAllPosts } from '../../Redux/postsRedux'
 import { useSelector } from 'react-redux'
-import { Card, Row, Col, Button } from 'react-bootstrap'
+import { Row, Col, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+//import dateToStr from '../../utils/dateToStr'
+//import matchCategory from '../../utils/matchCategory'
+//import { getAllCategories } from '../../Redux/categoriesRedux'
+import PostCard from '../views/PostCard'
 
 const Posts =() => {
 
@@ -17,25 +21,15 @@ const Posts =() => {
       </div>
       <Row xs={1} md={2} lg={3} className="g-4 mt-2">
         {
-          posts.map(post => (
-            <Col key={post.id}>
-              <Card>
-                <Card.Body>
-                  <Card.Title className="mb-3">{post.title}</Card.Title>
-                  <Card.Subtitle className="mt-2"><span className="fw-bold">Author: </span>{post.author}</Card.Subtitle>
-                  <Card.Subtitle className="mt-2"><span className="fw-bold">Published: </span>{post.publishedDate}</Card.Subtitle>
-                  <Card.Text className="mt-2">{post.shortDescription}</Card.Text>
-                  <Link className="mt-auto" key={post.id} to={`/post/${post.id}`}>
-                    <Button variant="primary" className="mt-2">Read more</Button>
-                  </Link>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))
-        }
-      </Row>
-    </section>
-  );
-}
+            posts.map(post => (
+              <Col key={post.id} className="d-flex align-items-stretch">
+                <PostCard id={post.id}/>
+              </Col>
+            ))
+          }
+        </Row>
+      </section>
+    );
+  }
 
 export default Posts;
